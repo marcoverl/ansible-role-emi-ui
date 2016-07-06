@@ -1,0 +1,31 @@
+---
+- name: Install necessary packages
+  yum: name={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - yum-priorities 
+    - wget 
+    - openssh-clients 
+    - gcc
+    - http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.0.1-1.el6.noarch.rpm
+- name: Install emi middleware
+  yum: name={{ item }} disable_gpg_check=yes state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - ca-policy-egi-core 
+    - emi-ui 
+    - voms-clients
+- name: copy files to root
+  copy: src={{ item.src }} dest={{ item.dst }} owner=root group=root mode=700
+  with_items:
+    - { src: "site-info.def", dst: "/root/site-info.def" }
+    - { src: "fakehostname.c", dst: "/root/fakehostname.c" }
+- name: copy files to user
+  copy: src={{ item.src }} dest={{ item.dst }} owner={{ user }} group={{ user }} mode=700
+  with_items:
+    - { src: "test-wms.jdl", dst: "/home/{{ user }}/test-wms.jdl" }
+    - { src: "test-cream.jdl", dst: "/home/{{ user }}/test-cream.jdl" }
+- command: gcc -o fakehostname.o -c -fPIC -Wall fakehostname.c
+- command: gcc -o libfakehostname.so -shared -W1,export-dynamic fakehostname.o -ldl
+- command: sed -i 's|hostname -f|hostname|g' /opt/glite/yaim/bin/yaim
+- command: /opt/glite/yaim/bin/yaim -d 6 -c -s /root/site-info.def -n UI
+  environment: 
+    LD_PRELOAD: "/root/libfakehostname.so"
