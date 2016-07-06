@@ -1,0 +1,14 @@
+galaxy_info:
+  author: marco.verlato@pd.infn.it
+  description: emi-ui application
+  company: INFN
+  license: Apache
+  min_ansible_version: 2.1
+  platforms:
+  - name: Centos
+    versions:
+    - 6
+  galaxy_tags:
+  - emi-ui
+dependencies:
+  - { role: indigo-dc.oneclient }
