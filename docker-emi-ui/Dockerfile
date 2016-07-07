@@ -5,6 +5,6 @@ MAINTAINER Marco Verlato <Marco.Verlato@pd.infn.it>
 LABEL description="Container image to run emi-ui"
 
 RUN ansible-galaxy install marcoverl.emi-ui && \
-    ansible-playbook /etc/ansible/roles/marcoverl.emi-ui/tests/emi-ui.yml
+    ansible-playbook /etc/ansible/roles/marcoverl.emi-ui/tests/emiui.yml
 
 EXPOSE 22
