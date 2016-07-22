@@ -28,8 +28,8 @@
   with_items:
     - { src: "test-wms.jdl", dst: "/home/enmruser/test-wms.jdl" }
     - { src: "test-cream.jdl", dst: "/home/enmruser/test-cream.jdl" }
-- command: gcc -o fakehostname.o -c -fPIC -Wall fakehostname.c
-- command: gcc -o libfakehostname.so -shared -W1,export-dynamic fakehostname.o -ldl
+- command: gcc -o fakehostname.o -c -fPIC -Wall fakehostname.c chdir=/root
+- command: gcc -o libfakehostname.so -shared -W1,export-dynamic fakehostname.o -ldl chdir=/root
 - command: sed -i 's|hostname -f|hostname|g' /opt/glite/yaim/bin/yaim
 - command: /opt/glite/yaim/bin/yaim -d 6 -c -s /root/site-info.def -n UI
   environment: 
