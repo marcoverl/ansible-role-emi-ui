@@ -2,6 +2,15 @@
 ## How to use EMI UI docker container for enmr.eu VO:
 #### In a CentOS (or Ubuntu) server, as root, install and start docker-engine:
 ```
+tee /etc/yum.repos.d/docker.repo << EOF
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/6
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF
+
 yum install docker-engine -y (or apt-get install docker.io -y)
 service docker start
 ```
