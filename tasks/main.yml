@@ -21,6 +21,8 @@
   with_items:
     - { src: "site-info.def", dst: "/root/site-info.def" }
     - { src: "fakehostname.c", dst: "/root/fakehostname.c" }
+- name: create the enmr user
+  user: name={{ user }} shell=/bin/bash
 - name: copy files to user
   copy: src={{ item.src }} dest={{ item.dst }} owner={{ user }} group={{ user }} mode=700
   with_items:
