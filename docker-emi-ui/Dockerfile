@@ -8,3 +8,4 @@ RUN ansible-galaxy install marcoverl.emi-ui && \
     ansible-playbook /etc/ansible/roles/marcoverl.emi-ui/tests/emiui.yml
 
 EXPOSE 22
+CMD    ["/usr/sbin/sshd", "-D"]
