@@ -11,7 +11,7 @@
 - name: install UMD repo
   yum: name=http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.0.1-1.el6.noarch.rpm state=present
 - name: Install emi middleware
-  yum: name={{ item }} disable_gpg_check=yes state=latest update_cache=yes cache_valid_time=3600
+  yum: name={{ item }} disable_gpg_check=yes state=latest update_cache=yes
   with_items:
     - ca-policy-egi-core 
     - emi-ui 
