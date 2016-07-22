@@ -22,12 +22,12 @@
     - { src: "site-info.def", dst: "/root/site-info.def" }
     - { src: "fakehostname.c", dst: "/root/fakehostname.c" }
 - name: create the enmr user
-  user: name={{ user }} shell=/bin/bash
+  user: name=enmruser shell=/bin/bash
 - name: copy files to user
-  copy: src={{ item.src }} dest={{ item.dst }} owner={{ user }} group={{ user }} mode=700
+  copy: src={{ item.src }} dest={{ item.dst }} owner=enmruser group=enmruser mode=700
   with_items:
-    - { src: "test-wms.jdl", dst: "/home/{{ user }}/test-wms.jdl" }
-    - { src: "test-cream.jdl", dst: "/home/{{ user }}/test-cream.jdl" }
+    - { src: "test-wms.jdl", dst: "/home/enmruser/test-wms.jdl" }
+    - { src: "test-cream.jdl", dst: "/home/enmruser/test-cream.jdl" }
 - command: gcc -o fakehostname.o -c -fPIC -Wall fakehostname.c
 - command: gcc -o libfakehostname.so -shared -W1,export-dynamic fakehostname.o -ldl
 - command: sed -i 's|hostname -f|hostname|g' /opt/glite/yaim/bin/yaim
