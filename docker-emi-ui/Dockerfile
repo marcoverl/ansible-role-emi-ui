@@ -1,6 +1,6 @@
 # docker build -t docker-emi-ui .
 
-FROM indigodatacloud/centos-sshd:6
+FROM centos:6
 MAINTAINER Marco Verlato <Marco.Verlato@pd.infn.it>
 LABEL description="Container image to run emi-ui"
 
