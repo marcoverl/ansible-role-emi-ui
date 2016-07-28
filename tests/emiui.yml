@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - { role: marcoverl.emi-ui }
+    - { role: marcoverl.emi-ui, username: enmruser }
