@@ -54,14 +54,53 @@ SE_GRIDFTP_LOGFILE=path_to_gridftp_logfile.log
 BDII_HOST=prod-bdii-01.pd.infn.it
 SITE_BDII_HOST=my-bdii.$MY_DOMAIN
 
-VOS="enmr.eu"
+VOS="enmr.eu drihm.eu cms virgo dteam"
 
 QUEUES="test"
 TEST_GROUP_ENABLE="fqan1 [fqan2 [...]]"
-
+###########
+# enmr.eu #
+###########
 VO_ENMR_EU_SW_DIR=/cvmfs/wenmr.egi.eu
 VO_ENMR_EU_DEFAULT_SE=$SE_HOST
 VO_ENMR_EU_VOMS_SERVERS="'vomss://voms2.cnaf.infn.it:8443/voms/enmr.eu?/enmr.eu' 'vomss://voms-02.pd.infn.it:8443/voms/enmr.eu?/enmr.eu'"
 VO_ENMR_EU_VOMSES="'enmr.eu voms2.cnaf.infn.it 15014 /C=IT/O=INFN/OU=Host/L=CNAF/CN=voms2.cnaf.infn.it enmr.eu' 'enmr.eu voms-02.pd.infn.it 15014 /C=IT/O=INFN/OU=Host/L=Padova/CN=voms-02.pd.infn.it enmr.eu'"
 VO_ENMR_EU_VOMS_CA_DN="'/C=IT/O=INFN/CN=INFN CA' '/C=IT/O=INFN/CN=INFN Certification Authority'"
 VO_ENMR_EU_WMS_HOSTS="prod-wms-01.pd.infn.it mb-enmr.chemie.uni-frankfurt.de"
+############
+# drihm.eu #
+############
+VO_DRIHM_EU_SW_DIR=/cvmfs/drihm.eu
+VO_DRIHM_EU_DEFAULT_SE=$SE_HOST
+#STORAGE_DIR=$CLASSIC_STORAGE_DIR/drihm
+VO_DRIHM_EU_VOMS_SERVERS="'vomss://vomsmania.cnaf.infn.it:8443/voms/drihm.eu?/drihm.eu'"
+VO_DRIHM_EU_VOMSES="'drihm.eu vomsmania.cnaf.infn.it 15005 /C=IT/O=INFN/OU=Host/L=CNAF/CN=vomsmania.cnaf.infn.it drihm.eu'"
+VO_DRIHM_EU_VOMS_CA_DN="'/C=IT/O=INFN/CN=INFN Certification Authority'"
+VO_DRIHM_EU_WMS_HOSTS="prod-wms-01.pd.infn.it"
+VO_DRIHM_EU_LFC_HOST="lfc.ipb.ac.rs"
+#######
+# cms #
+#######
+VO_CMS_SW_DIR=$VO_SW_DIR/cms
+VO_CMS_DEFAULT_SE=t2-srm-02.lnl.infn.it
+VO_CMS_STORAGE_DIR=/pnfs/lnl.infn.it/data/cms
+VO_CMS_VOMS_SERVERS='vomss://voms.cern.ch:8443/voms/cms?/cms/'
+VO_CMS_VOMSES="'cms lcg-voms.cern.ch 15002 /DC=ch/DC=cern/OU=computers/CN=lcg-voms.cern.ch cms 24' 'cms voms.cern.ch 15002 /DC=ch/DC=cern/OU=computers/CN=voms.cern.ch cms 24'"
+VO_CMS_VOMS_CA_DN="'/DC=ch/DC=cern/CN=CERN Trusted Certification Authority' '/DC=ch/DC=cern/CN=CERN Trusted Certification Authority'"
+#########
+# virgo #
+#########
+VO_VIRGO_SW_DIR=$VO_SW_DIR/virgo
+VO_VIRGO_DEFAULT_SE=$SE_HOST
+VO_VIRGO_VOMS_SERVERS="'vomss://voms.cnaf.infn.it:8443/voms/virgo?/virgo' 'vomss://voms-01.pd.infn.it:8443/voms/virgo?/virgo'"
+VO_VIRGO_VOMSES="'virgo voms.cnaf.infn.it 15009 /C=IT/O=INFN/OU=Host/L=CNAF/CN=voms.cnaf.infn.it virgo' 'virgo voms-01.pd.infn.it 15009 /C=IT/O=INFN/OU=Host/L=Padova/CN=voms-01.pd.infn.it virgo'"
+VO_VIRGO_VOMS_CA_DN="'/C=IT/O=INFN/CN=INFN Certification Authority' '/C=IT/O=INFN/CN=INFN Certification Authority'"
+#########
+# dteam #
+#########
+VO_DTEAM_SW_DIR=$VO_SW_DIR/dteam
+VO_DTEAM_DEFAULT_SE=$SE_HOST
+VO_DTEAM_VOMS_SERVERS='vomss://voms.hellasgrid.gr:8443/voms/dteam?/dteam/'
+VO_DTEAM_VOMSES="'dteam voms.hellasgrid.gr 15004 /C=GR/O=HellasGrid/OU=hellasgrid.gr/CN=voms.hellasgrid.gr dteam 24' 'dteam voms2.hellasgrid.gr 15004 /C=GR/O=HellasGrid/OU=hellasgrid.gr/CN=voms2.hellasgrid.gr dteam 24'"
+VO_DTEAM_VOMS_CA_DN="'/C=GR/O=HellasGrid/OU=Certification Authorities/CN=HellasGrid CA 2016' '/C=GR/O=HellasGrid/OU=Certification Authorities/CN=HellasGrid CA 2016'"
+
