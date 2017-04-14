@@ -25,7 +25,6 @@ docker run -it -v /root/.globus:/home/enmruser/.globus --name wenmr-ui docker-em
 ```
 #### You are logged as root, in case you need to install other packages. As enmruser you can then create your proxy and submit grid jobs
 ```
-chown enmruser.enmruser -R /home/enmruser
 su - enmruser
 voms-proxy-init -voms enmr.eu
 #
