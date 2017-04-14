@@ -1,17 +1,8 @@
 # docker-emi-ui
 ## How to use EMI UI docker container for enmr.eu VO:
-#### In a CentOS (or Ubuntu) server, as root, install and start docker-engine:
+#### In a CentOS (or Ubuntu) server, as root, install and start docker engine:
 ```
-tee /etc/yum.repos.d/docker.repo << EOF
-[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/6
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-EOF
-
-yum install docker-engine -y (or apt-get install docker.io -y)
+curl -fsSL https://get.docker.com/ | sh
 service docker start
 ```
 #### Copy your usercert.pem and userkey.pem under /root/.globus/ (or where else you prefer)
@@ -22,8 +13,8 @@ scp yourusername@yourpc.domain:.globus/user*.pem /root/.globus/
 #### Now you have two options:
 - pull the image and run the container (faster):
 ```
-docker pull marcoverl/docker-emi-ui
-docker run -it -v /root/.globus:/home/enmruser/.globus --name wenmr-ui marcoverl/docker-emi-ui
+docker pull marcoverl/ansible-role-emi-ui
+docker run -it -v /root/.globus:/home/enmruser/.globus --name wenmr-ui marcoverl/ansible-role-emi-ui
 ```
 - build the docker image and run the container (slower):
 ```
