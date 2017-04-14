@@ -18,8 +18,8 @@ docker run -it -v /root/.globus:/home/enmruser/.globus --name wenmr-ui marcoverl
 ```
 - build the docker image and run the container (slower):
 ```
-git clone https://github.com/marcoverl/docker-emi-ui
-cd docker-emi-ui
+ansible-galaxy install marcoverl.emi-ui
+cd /etc/ansible/roles/marcoverl.emi-ui/docker-emi-ui
 docker build -t docker-emi-ui .
 docker run -it -v /root/.globus:/home/enmruser/.globus --name wenmr-ui docker-emi-ui
 ```
