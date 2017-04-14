@@ -9,7 +9,7 @@
 #- name: wget UMD repo
 # get_url: url=http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.0.1-1.el6.noarch.rpm dest=/tmp
 - name: install UMD repo
-  yum: name=http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.0.1-1.el6.noarch.rpm state=present
+  yum: name=http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.14.4-1.el6.noarch.rpm state=present
 - name: Install emi middleware
   yum: name={{ item }} disable_gpg_check=yes state=latest update_cache=yes
   with_items:
